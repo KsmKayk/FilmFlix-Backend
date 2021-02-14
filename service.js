@@ -2,6 +2,7 @@ const puppeteer = require("puppeteer");
 
 module.exports = {
   async searchFilm(req, res) {
+    res.header("Acess-Control-Allow-Origin", "*");
     const { name } = req.body;
     const baseUrl = "https://topflix.top/list/filmes/";
 
@@ -64,6 +65,7 @@ module.exports = {
     return res.json(filmsObject);
   },
   async selectFilm(req, res) {
+    res.header("Acess-Control-Allow-Origin", "*");
     const { link } = req.body;
 
     const browser = await puppeteer.launch();
