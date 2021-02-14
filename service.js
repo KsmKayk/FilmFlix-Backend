@@ -9,7 +9,9 @@ module.exports = {
     let searchTermToSearchUrl = searchTerm.split(" ").join("%20");
     let searchUrl = baseUrl + searchTermToSearchUrl + "/";
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
     const page = await browser.newPage();
     await page.goto(searchUrl, {
       waitUntil: "networkidle2",
@@ -66,7 +68,9 @@ module.exports = {
   async selectFilm(req, res) {
     const { link } = req.body;
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
     const page = await browser.newPage();
     await page.goto(link, {
       waitUntil: "networkidle2",
