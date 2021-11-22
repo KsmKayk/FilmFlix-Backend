@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 module.exports = {
   async searchFilm(req, res) {
     const { name } = req.body;
-    const baseUrl = "https://topflix.top/list/filmes/";
+    const baseUrl = "https://topflix.one/list/filmes/";
 
     let searchTerm = name;
     let searchTermToSearchUrl = searchTerm.split(" ").join("%20");
